@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 99vh;
+    height: 100vh;
 }
 
 .content {
@@ -117,7 +117,6 @@ body {
 .form input {
     height: 45px;
     width: 100%;
-    border: none;
     border-radius: 10px;
     background-color: #ecf0f1;
 }
