@@ -4,10 +4,10 @@ session_start();
 
 require_once('database/banco.php');
 
-$usuario = $_POST['usuario'];
-$senha = md5($_POST['senha']);
+$matricula = $_POST['campo_matricula'];
+$senha = ($_POST['campo_senha']);
 
-$sql = " SELECT id, usuario, matricula FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha' ";
+$sql = " SELECT matricula, senha FROM usuarios WHERE matricula = '$matricula' AND senha = '$senha' ";
 
 $objDb = new db();
 $link = $objDb->conecta_mysql();
@@ -18,13 +18,12 @@ try {
     if ($resultado_id) {
         $dados_usuario = mysqli_fetch_array($resultado_id);
 
-        if (isset($dados_usuario['usuario'])) {
+        if (isset($dados_usuario['matricula'])) {
 
-            $_SESSION['id_usuario'] = $dados_usuario['id'];
-            $_SESSION['usuario'] = $dados_usuario['usuario'];
+            $_SESSION['senha'] = $dados_usuario['senha'];
             $_SESSION['matricula'] = $dados_usuario['matricula'];
 
-            header('Location: index.php');
+            header('Location: home.php');
 
         } else {
             header('Location: index.php?erro=1');

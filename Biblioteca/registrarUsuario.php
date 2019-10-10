@@ -6,7 +6,7 @@ require_once('database/banco.php');
 
 $usuario = $_POST['campo_usuario'];
 $matricula = $_POST['campo_matricula'];
-$senha = md5($_POST['campo_senha']);
+$senha = ($_POST['campo_senha']);
 
 
 $objDb = new db();

@@ -1,11 +1,3 @@
-<?php
-
-	$erro_usuario	= isset($_GET['erro_usuario'])	? $_GET['erro_usuario'] : 0;
-	$erro_matricula	= isset($_GET['erro_matricula'])	? $_GET['erro_matricula']	: 0;
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +6,7 @@
     <!-- Compatibilidade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login Biblioteca</title>
+    <title>Biblioteca</title>
 
     <!-- Adicionando CSS e ícones -->
     <link rel="stylesheet" href="css/style.css">
@@ -33,24 +25,25 @@
                 var campo_vazio = false;
 
                 if($('#campo_usuario').val() === ''){
-                    $('#campo_usuario').css({'border-color': '#A94442'});
+                    $('#campo_usuario').css({'border-color': '#A94442', 'border-width' : '3px'});
                     campo_vazio = true;
                 } else {
-                    $('#campo_usuario').css({'border-color': '#CCC'});
+                    $('#campo_usuario').css({'border-color': '#CCC', 'border-width' : '1px'});
                 }
 
                 if($('#campo_matricula').val() === ''){
-                    $('#campo_matricula').css({'border-color': '#A94442'});
+                    $('#campo_matricula').css({'border-color': '#A94442', 'border-width' : '3px'});
                 }else{
-                    $('#campo_matricula').css({'border-color': '#CCC'})
+                    $('#campo_matricula').css({'border-color': '#CCC', 'border-width' : '1px'})
                 }
 
                 if($('#campo_senha').val() === ''){
-                    $('#campo_senha').css({'border-color': '#A94442'});
+                    $('#campo_senha').css({'border-color': '#A94442', 'border-width' : '3px'});
                     campo_vazio = true;
                 } else {
-                    $('#campo_senha').css({'border-color': '#CCC'});
+                    $('#campo_senha').css({'border-color': '#CCC', 'border-width' : '1px'});
                 }
+
 
                 if(campo_vazio) return false;
             });
@@ -73,21 +66,12 @@
                             <label class="label-input" for="">
                                 <i class="far fa-user icon-modify"></i>
                                 <input id="campo_usuario"  name="campo_usuario" type="text" placeholder="  Nome">
-                                <?php
-                                    if($erro_usuario){
-                                        echo '<style= "color: #FF0000 ">Usuário já existe</style>';
-                                    }
-                                ?>
+                              
                             </label>
 
                             <label class="label-input" for="">
-                                <span style="font-size: 13.5px ;"><i class="fa fa-address-card-o icon-modify" ></i></span>
+                                <i style="font-size: 13.5px ; padding-left:4px;" class="fa fa-address-card-o icon-modify" ></i>
                                 <input id="campo_matricula" name="campo_matricula" type="text" placeholder="  Matrícula">
-                                <?php
-                                    if($erro_matricula){
-                                        echo 'style="color:#FF0000"Matricula já existe';
-                                    }
-                                ?>
                             </label>
 
                             <label class="label-input" for="">
