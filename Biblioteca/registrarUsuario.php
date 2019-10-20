@@ -16,7 +16,7 @@ $usuario_existe = false;
 $matricula_existe = false;
 
 //verificar se o usuário já existe
-$sql = " select * from usuarios where usuario = '$usuario' ";
+$sql = " select * from usuarios where nome = '$usuario' ";
 if ($resultado_id = mysqli_query($link, $sql)) {
 
     $dados_usuario = mysqli_fetch_array($resultado_id);
@@ -58,7 +58,7 @@ if ($usuario_existe || $matricula_existe) {
     die();
 }
 
-$sql = " insert into usuarios(usuario, matricula, senha) values ('$usuario', '$matricula', '$senha') ";
+$sql = " insert into usuarios(nome, matricula, senha) values ('$usuario', '$matricula', '$senha') ";
 
 //executar a query
 if (mysqli_query($link, $sql)) {

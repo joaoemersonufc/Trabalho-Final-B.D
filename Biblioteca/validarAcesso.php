@@ -5,7 +5,7 @@ session_start();
 require_once('database/banco.php');
 
 $matricula = $_POST['campo_matricula'];
-$senha = ($_POST['campo_senha']);
+$senha = $_POST['campo_senha'];
 
 $sql = " SELECT matricula, senha FROM usuarios WHERE matricula = '$matricula' AND senha = '$senha' ";
 
