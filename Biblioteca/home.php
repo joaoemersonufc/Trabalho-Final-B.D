@@ -1,6 +1,10 @@
 <?php
 	
     session_start();
+
+    if(!isset($_SESSION['matricula'])){
+        header('Location: logar.php?erro=1');
+    }
 ?>
 
 <head>
@@ -39,7 +43,7 @@
     <div class="row cards px-lg-5">
 
         <div class="col-lg-3 mb-2">
-            <a href="/sis/eventos">
+            <a href="./livros.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fas fa-book fa-5x"></i>
@@ -116,7 +120,7 @@
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="index.php" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a href="index.php" onclick="event.preventDefault();window.location.href='index.php'">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fa fa-sign-out fa-5x"></i>
@@ -125,9 +129,6 @@
                     </div>
                 </div>
             </a>
-            <form id="logout-form" action="index.php" method="POST" style="display: none;">
-                @endsession
-            </form>
         </div>
     </div>
 </div>
