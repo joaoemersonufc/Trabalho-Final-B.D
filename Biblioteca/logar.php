@@ -62,7 +62,12 @@
 	                    <input id="campo_senha" name="campo_senha" type="password" placeholder="  Senha">
 	                </label>
 
-	                   <button id="btn-login" type="submit" class="btn btn-second" style="margin-bottom: 20px;" value="login">Logar</button>
+	                <div class="col-xg-4" align="center">
+
+	                	<button class="btn btn-second" style="margin-bottom: 20px;margin-left:40px" onclick="window.location.href='index.php'">Voltar</button>
+
+	                  	<button id="btn-login" type="submit" class="btn btn-second" style="margin-bottom: 20px; margin-left: 40px" value="login">Logar</button>
+	            	</div>
 	            </form>
 	        </div>
 	    </div>

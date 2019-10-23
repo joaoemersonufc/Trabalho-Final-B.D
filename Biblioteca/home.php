@@ -67,7 +67,7 @@
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="/sis/associados">
+            <a href="./devolucoes.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fas fa-retweet fa-5x"></i>
@@ -78,7 +78,7 @@
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="/sis/noticias">
+            <a href="./emprestimos.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fas fa-hand-holding-heart fa-5x"></i>

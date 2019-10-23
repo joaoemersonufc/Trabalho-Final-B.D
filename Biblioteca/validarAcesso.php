@@ -26,7 +26,7 @@ try {
             header('Location: home.php');
 
         } else {
-            header('Location: index.php?erro=1');
+            header('Location: index.php');
         }
     }
 }catch(mysqli_sql_exception $e) {

@@ -60,7 +60,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #e3e6f0;
+  background-color: #eeeeee;
 }
 
 [tabindex="-1"]:focus {
@@ -1862,7 +1862,7 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  color: #fff;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -1877,7 +1877,7 @@ pre code {
 }
 
 .form-control::-ms-expand {
-  background-color: transparent;
+  background-color: red; 
   border: 0;
 }
 
@@ -2944,7 +2944,7 @@ fieldset:disabled a.btn {
 .btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active,
 .show > .btn-outline-dark.dropdown-toggle {
   color: #fff;
-  background-color: #343a40;
+  background-color: #9457A1;
   border-color: #343a40;
 }
 
@@ -3254,7 +3254,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #9457A1;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {

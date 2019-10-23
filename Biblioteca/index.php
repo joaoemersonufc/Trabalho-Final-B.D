@@ -50,6 +50,12 @@
                     $('#campo_senha').css({'border-color': '#CCC', 'border-width' : '1px'});
                 }
 
+                if($('#campo_senha').val() === '' && $('#campo_matricula').val() === '' &&$('#campo_usuario').val() === '' ){
+                    $('#campo_matricula').css({'border-color': '#A94442', 'border-width' : '3px'});
+                    $('#campo_usuario').css({'border-color': '#A94442', 'border-width' : '3px'});
+                    $('#campo_senha').css({'border-color': '#A94442', 'border-width' : '3px'});
+                }
+
 
                 if(campo_vazio) return false;
             });
@@ -89,13 +95,6 @@
                     </form>
             </div><!--Segunda coluna-->
         </div><!-- Primeira coluna -->
-    </div>
-    <div class="page-footer footer-login-cad">
-            <div class="footer-copyright">
-                <div class="d-flex justify-content-center" style="text-align: center">
-                     <i class="far fa-copyright"></i> Desenvolvido <i class="fas fa-code"></i> with <i class="far    fa-heart"></i> by <a href="https://www.instagram.com/joaoemerson._" style="color: #fff"> João Emerson </a>
-                </div>
-            </div>
     </div>
 </body>
 </html>
