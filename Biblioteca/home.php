@@ -24,6 +24,7 @@
     <style type="text/css">
     	.title-second {
     		color: #9457A1;
+            border: bold;
 		}
 
 		.title {
@@ -36,7 +37,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10 mt-3 mx-auto text-center">
-            <h1 class=" title title-second">Painel Administrativo</h1>
+            <br>
+            <h1 class="font-weight-lighter title-second" style="border: bold;">Painel Administrativo</h1>
             <hr>
         </div>
     </div>

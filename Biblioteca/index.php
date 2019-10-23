@@ -90,5 +90,12 @@
             </div><!--Segunda coluna-->
         </div><!-- Primeira coluna -->
     </div>
+    <div class="page-footer footer-login-cad">
+            <div class="footer-copyright">
+                <div class="d-flex justify-content-center" style="text-align: center">
+                     <i class="far fa-copyright"></i> Desenvolvido <i class="fas fa-code"></i> with <i class="far    fa-heart"></i> by <a href="https://www.instagram.com/joaoemerson._" style="color: #fff"> João Emerson </a>
+                </div>
+            </div>
+    </div>
 </body>
 </html>

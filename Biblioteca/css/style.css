@@ -13,6 +13,12 @@ body {
     max-width: 100%;
 }
 
+.page-footer { background-color: #9457A1 !important; }
+.page-footer.footer-login-cad { position: fixed;  width: 100%; bottom: 0;  z-index: -10;  background-color: #9457A1 !important; }
+.page-footer a { color: #000; font: 1rem 'Comfortaa', sans-serif; }
+.page-footer .container h5 { font: 1.6rem 'Comfortaa', sans-serif; }
+.page-footer .container p { font: .9rem 'Comfortaa', sans-serif; }
+.page-footer.footer-painel { background-color: #9457A1 !important; }
 
 
 .container {

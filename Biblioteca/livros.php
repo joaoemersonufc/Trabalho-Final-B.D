@@ -67,7 +67,7 @@
                 </i> Voltar</a>
         </div>
         <div class="col-xl-12 mt-3 mx-auto actions" style="padding-top: 20px">
-            <h1 class="font-weight-lighter" style="color: #9457A1;border: bold;">Livros</h1>
+            <h1 class="font-weight-lighter title-second" style="border: bold;">Livros</h1>
             <hr>
             <div class="row">
                 <div class="col-lg-6">
