@@ -6,6 +6,7 @@
         header('Location: logar.php?erro=1');
     }
 ?>
+<title>Devoluções</title>
 <link rel="stylesheet" href="css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -72,7 +73,7 @@
                 </i> Voltar</a>
         </div>
         <div class="col-xl-12 mt-3 mx-auto actions" style="padding-top: 20px">
-            <h1 class="font-weight-lighter title-second" style="border: bold;">Devoluções</h1>
+            <h1 class="font-weight-lighter title-second" style="border:bold;color: #9457A1;">Devoluções</h1>
             <hr>
             <div class="row">
                 <div class="col-lg-6">

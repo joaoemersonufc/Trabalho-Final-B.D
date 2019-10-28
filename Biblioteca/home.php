@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-lg-10 mt-3 mx-auto text-center">
             <br>
-            <h1 class="font-weight-lighter title-second" style="border: bold;">Painel Administrativo</h1>
+            <h1 class="font-weight-lighter title-second" style="border:bold;color: #9457A1;">Painel Administrativo</h1>
             <hr>
         </div>
     </div>
@@ -56,7 +56,7 @@
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="/sis/noticias">
+            <a href="./reservas.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fas fa-calendar-alt fa-5x"></i>
@@ -89,29 +89,29 @@
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="/sis/dados">
+            <a href="./usuarios.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
-                        <i class="fa fa-user fa-5x"></i>
+                        <i class="fa fa-users fa-5x"></i>
                         <hr>
-                        <h3 class="mt-2 font-weight-lighter">Perfil</h3>
+                        <h3 class="mt-2 font-weight-lighter">Usuários</h3>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="/sis/midia">
+            <a href="./criadores.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
-                        <i class="fas fa-history fa-5x"></i>
+                        <i class="fas fa-laugh fa-5x"></i>
                         <hr>
-                        <h3 class="mt-2 font-weight-lighter">Histórico</h3>
+                        <h3 class="mt-2 font-weight-lighter">Sobre os Criadores</h3>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="/sis/associados">
+            <a href="./ajuda.php">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fas fa-question-circle fa-5x"></i>
