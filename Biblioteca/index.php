@@ -22,44 +22,49 @@
 
     <!-- Script em Jquery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
     <script>
-        $(document).ready( function(){
+        function SomenteNumero(e){
+            var tecla=(window.event)?event.keyCode:e.which;   
+            if((tecla>47 && tecla<58)) return true;
+            else{
+                if (tecla==8 || tecla==0) return true;
+            else  return false;
+            }
+        }
+    </script>
 
-            //verificar se os campos de usuário e senha foram devidamente preenchidos
-            $('#btn-registrar').click(function(){
-
-                var campo_vazio = false;
-
-                if($('#campo_usuario').val() === ''){
-                    $('#campo_usuario').css({'border-color': '#A94442', 'border-width' : '3px'});
-                    campo_vazio = true;
-                } else {
-                    $('#campo_usuario').css({'border-color': '#CCC', 'border-width' : '1px'});
-                }
-
-                if($('#campo_matricula').val() === ''){
-                    $('#campo_matricula').css({'border-color': '#A94442', 'border-width' : '3px'});
-                }else{
-                    $('#campo_matricula').css({'border-color': '#CCC', 'border-width' : '1px'})
-                }
-
-                if($('#campo_senha').val() === ''){
-                    $('#campo_senha').css({'border-color': '#A94442', 'border-width' : '3px'});
-                    campo_vazio = true;
-                } else {
-                    $('#campo_senha').css({'border-color': '#CCC', 'border-width' : '1px'});
-                }
-
-                if($('#campo_senha').val() === '' && $('#campo_matricula').val() === '' &&$('#campo_usuario').val() === '' ){
-                    $('#campo_matricula').css({'border-color': '#A94442', 'border-width' : '3px'});
-                    $('#campo_usuario').css({'border-color': '#A94442', 'border-width' : '3px'});
-                    $('#campo_senha').css({'border-color': '#A94442', 'border-width' : '3px'});
-                }
-
-
-                if(campo_vazio) return false;
-            });
-        });
+    <script>
+        function InvalidMsg(textbox) {
+            
+            if (textbox.value == '') {
+                textbox.setCustomValidity('Preencha com seu nome');
+            }
+            else {
+                textbox.setCustomValidity('');
+            }
+            return true;
+        }
+        function InvalidMsg2(textbox) {
+            
+            if (textbox.value == '') {
+                textbox.setCustomValidity('Preencha com sua matrícula');
+            }
+            else {
+                textbox.setCustomValidity('');
+            }
+            return true;
+        }
+        function InvalidMsg3(textbox) {
+            
+            if (textbox.value == '') {
+                textbox.setCustomValidity('Preencha com sua senha');
+            }
+            else {
+                textbox.setCustomValidity('');
+            }
+            return true;
+        }
     </script>
 
 </head>
@@ -77,22 +82,37 @@
                     <form class="form" method="post" action="registrarUsuario.php" id="formCadastro" >
                             <label class="label-input" for="">
                                 <i class="far fa-user icon-modify"></i>
-                                <input id="campo_usuario"  name="campo_usuario" type="text" placeholder="  Nome">
-                              
+                                <input id="campo_usuario"  name="campo_usuario" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="  Nome">
                             </label>
-
+                            <span>
+                                <?php
+                                    $verificarURL = $_SERVER['REQUEST_URI'];
+                                    if(strstr($verificarURL, 'erro_usuario=1&')){
+                                        echo "<h6 style='padding-left:35px; color:red'>Nome de usuário já cadastrado</h6>";
+                                    }
+                                ?>    
+                            </span>
+                            
                             <label class="label-input" for="">
                                 <i style="font-size: 13.5px ; padding-left:4px;" class="fa fa-address-card-o icon-modify" ></i>
-                                <input id="campo_matricula" name="campo_matricula" type="text" placeholder="  Matrícula">
+                                <input id="campo_matricula" name="campo_matricula" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" placeholder="  Matrícula" onkeypress='return SomenteNumero(event)'>
                             </label>
-
+                            <span>
+                                <?php
+                                    $verificarURL = $_SERVER['REQUEST_URI'];
+                                    if(strstr($verificarURL, 'erro_matricula=1&')){
+                                        echo "<h6 style='padding-left:35px; color:red'>Esta matrícula já está cadastrada</h6>";
+                                    }
+                                ?>    
+                            </span>
                             <label class="label-input" for="">
                                 <i class="fas fa-lock icon-modify"></i>
-                                <input id="campo_senha" name="campo_senha" type="password" placeholder="  Senha">
+                                <input id="campo_senha" name="campo_senha" oninvalid="InvalidMsg3(this);" oninput="InvalidMsg3(this);" required="required" type="password" placeholder="  Senha">
                             </label>
 
                         <button id="btn-registrar" type="submit" class="btn btn-second " value="cadastro">Cadastrar</button>
                     </form>
+
             </div><!--Segunda coluna-->
         </div><!-- Primeira coluna -->
     </div>

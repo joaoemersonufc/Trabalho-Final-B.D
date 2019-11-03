@@ -9,32 +9,36 @@
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
 	<script>
-	        $(document).ready( function(){
-
-	            //verificar se os campos de usuário e senha foram devidamente preenchidos
-	            $('#btn-login').click(function(){
-
-	                var campo_vazio = false;
-
-	                if($('#campo_matricula').val() === ''){
-	                    $('#campo_matricula').css({'border-color': '#A94442', 'border-width' : '3px'});
-	                    campo_vazio = true;
-	                }else{
-	                    $('#campo_matricula').css({'border-color': '#CCC', 'border-width' : '1px'})
-	                }
-
-	                if($('#campo_senha').val() === ''){
-	                    $('#campo_senha').css({'border-color': '#A94442', 'border-width' : '3px'});
-	                    campo_vazio = true;
-	                } else {
-	                    $('#campo_senha').css({'border-color': '#CCC', 'border-width' : '1px'});
-	                }
-
-
-	                if(campo_vazio) return false;
-	            });
-	        });
-	</script>
+        function SomenteNumero(e){
+            var tecla=(window.event)?event.keyCode:e.which;   
+            if((tecla>47 && tecla<58)) return true;
+            else{
+                if (tecla==8 || tecla==0) return true;
+            else  return false;
+            }
+        }
+    </script>
+    <script>
+        function InvalidMsg(textbox) {
+            
+            if (textbox.value == '') {
+                textbox.setCustomValidity('Preencha com sua matrícula');
+            }
+            else {
+                textbox.setCustomValidity('');
+            }
+            return true;
+        }
+        function InvalidMsg2(textbox) {
+            
+            if (textbox.value == '') {
+                textbox.setCustomValidity('Preencha com sua senha');
+            }
+            else {
+                textbox.setCustomValidity('');
+            }
+            return true;
+        }</script>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -54,13 +58,21 @@
 	           	<form class="form" method="post" action="validarAcesso.php" id="formCadastro" >
 	                <label class="label-input" for="">
 	                    <i style="font-size: 23.5px ;" class="fa fa-address-card-o icon-modify" ></i>
-	                    <input id="campo_matricula" name="campo_matricula" type="text" placeholder="  Matrícula">
+	                    <input  id="campo_matricula" name="campo_matricula" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="  Matrícula" onkeypress='return SomenteNumero(event)'>
 	                </label>
 
 	                <label class="label-input" for="">
 	                    <i style="font-size: 23.5px ; padding-left:10px;" class="fas fa-lock icon-modify"></i>
-	                    <input id="campo_senha" name="campo_senha" type="password" placeholder="  Senha">
+	                    <input  id="campo_senha" name="campo_senha" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="password" placeholder="  Senha">
 	                </label>
+	                <span>
+                       	<?php
+                            $verificarURL = $_SERVER['REQUEST_URI'];
+                            if(strstr($verificarURL, 'erro_login=1&')){
+                                echo "<h6 style='padding-left:45px; color:red'>Matrícula e/ou Senha inválido(s)</h6>";
+                           	}
+                        ?>    
+                    </span>
 
 	                <div class="col-xg-4" align="center">
 

@@ -16,7 +16,7 @@ $usuario_existe = false;
 $matricula_existe = false;
 
 //verificar se o usuário já existe
-$sql = " select * from usuarios where nome = '$usuario' ";
+$sql = " Select * from usuarios where nome = '$usuario' ";
 if ($resultado_id = mysqli_query($link, $sql)) {
 
     $dados_usuario = mysqli_fetch_array($resultado_id);
@@ -53,7 +53,6 @@ if ($usuario_existe || $matricula_existe) {
     if ($matricula_existe) {
         $retorno_get .= "erro_matricula=1&";
     }
-
     header('Location: index.php?' . $retorno_get);
     die();
 }
@@ -62,10 +61,18 @@ $sql = " insert into usuarios(nome, matricula, senha) values ('$usuario', '$matr
 
 //executar a query
 if (mysqli_query($link, $sql)) {
-    echo 'Usuário registrado com sucesso!';
+    redirect(); 
 } else {
     echo 'Erro ao registrar o usuário!';
 }
 
+function redirect()
+{
+    header("refresh: 3;index.php");
+        
+    echo "<title>Redirecionando...</title> <body style='padding-top:30px' bgcolor='#eeeeee'><font color='#9457A1' style='border:bold; text-transform:uppercase;'><center>Usuário registrado com sucesso!<br><hr>Aguarde, redirecionando em 3 segundos...<br><img src='https://' width='284' heigth='284' style='opacity:0.7;filter:alpha(opacity=70);border:bold;'><br><hr>Se o redirecionamento não funcionar automaticamente, retorne a página inicial e tente novamente...";
+
+    exit;
+}
 
 ?>
