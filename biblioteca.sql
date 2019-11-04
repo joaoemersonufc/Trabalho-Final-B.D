@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Nov-2019 às 22:52
+-- Generation Time: 05-Nov-2019 às 00:42
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -25,10 +25,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura da tabela `editora`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `editora` (
+  `cod` int(10) NOT NULL,
+  `nome` varchar(35) NOT NULL,
+  `contato` varchar(244) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `livro`
+--
+
+CREATE TABLE `livro` (
+  `cod` int(10) NOT NULL,
+  `cod_editora` int(10) NOT NULL,
+  `titulo` varchar(35) NOT NULL,
+  `edicao` varchar(35) NOT NULL,
+  `sinopse` varchar(244) NOT NULL,
+  `genero` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(35) NOT NULL,
   `matricula` int(20) NOT NULL,
@@ -36,21 +63,34 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `matricula`, `senha`) VALUES
+INSERT INTO `usuario` (`id`, `nome`, `matricula`, `senha`) VALUES
 (1, 'João', 412966, '123'),
-(17, 'Davi', 23213, '12321');
+(23, 'Davi', 412725, '123');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `usuarios`
+-- Indexes for table `editora`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `editora`
+  ADD PRIMARY KEY (`cod`);
+
+--
+-- Indexes for table `livro`
+--
+ALTER TABLE `livro`
+  ADD PRIMARY KEY (`cod`),
+  ADD KEY `cod_editora` (`cod_editora`);
+
+--
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,10 +98,26 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT for table `livro`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+ALTER TABLE `livro`
+  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `livro`
+--
+ALTER TABLE `livro`
+  ADD CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`cod_editora`) REFERENCES `editora` (`cod`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

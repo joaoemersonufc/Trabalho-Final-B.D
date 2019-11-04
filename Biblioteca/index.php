@@ -8,6 +8,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/logoico.png">
 
     <!-- Compatibilidade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

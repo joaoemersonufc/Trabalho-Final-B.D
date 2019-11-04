@@ -46,6 +46,7 @@
 </style>
 
 <title>Usuários</title>
+<link rel="shortcut icon" href="img/logoico.png">
 <link rel="stylesheet" href="css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -73,10 +74,10 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-3 py-5 card-news">
-                    <img src='img/brasaoUFC.jpg' class="img-assoc image" style="border-radius:30px;width: 300px;height: 320px;" alt="">
+                    <img src='img/brasaoUFC.jpg' class="img-assoc image" style="border-radius:30px;width: 280px;height: 360px;" alt="">
                     <div class="middle">
                         <div class="text">
-                            <h5 class="text-dark"></h5>
+                            <h5 class="text-dark" align="center"></h5>
                             <a href="#modal_excluir" data-toggle="modal" align="center" class="btn btn-outline-danger my-1">
                                 Excluir Usuário
                                 <i class="fa fa-trash"></i>
