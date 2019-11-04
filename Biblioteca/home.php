@@ -122,7 +122,7 @@
             </a>
         </div>
         <div class="col-lg-3 mb-2">
-            <a href="index.php" onclick="event.preventDefault();window.location.href='index.php'">
+            <a href="index.php" onclick="event.preventDefault();window.location.href='logout.php'">
                 <div class="card h-100 px-0 border-left-info card-categorias" style="color: #9457A1">
                     <div class="card-body text-center">
                         <i class="fa fa-sign-out fa-5x"></i>

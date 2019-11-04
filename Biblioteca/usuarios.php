@@ -73,11 +73,11 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-3 py-5 card-news">
-                    <img src='img/brasaoUFC.jpg' class="img-assoc image" style="border-radius:30px" alt="">
+                    <img src='img/brasaoUFC.jpg' class="img-assoc image" style="border-radius:30px;width: 300px;height: 320px;" alt="">
                     <div class="middle">
                         <div class="text">
                             <h5 class="text-dark"></h5>
-                            <a href="#modal_excluir" data-toggle="modal" id=""  class="btn btn-outline-danger my-1">
+                            <a href="#modal_excluir" data-toggle="modal" align="center" class="btn btn-outline-danger my-1">
                                 Excluir Usuário
                                 <i class="fa fa-trash"></i>
                             </a>

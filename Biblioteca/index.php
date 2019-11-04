@@ -112,7 +112,6 @@
 
                         <button id="btn-registrar" type="submit" class="btn btn-second " value="cadastro">Cadastrar</button>
                     </form>
-
             </div><!--Segunda coluna-->
         </div><!-- Primeira coluna -->
     </div>

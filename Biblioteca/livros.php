@@ -63,6 +63,16 @@
         border-radius: 20px;
     }
 </style>
+<script>
+    function SomenteNumero(e){
+        var tecla=(window.event)?event.keyCode:e.which;   
+        if((tecla>47 && tecla<58)) return true;
+            else{
+                if (tecla==8 || tecla==0) return true;
+            else  return false;
+        }
+    }
+</script>
 <div class="container-fluid">
 
     <div class="row" style="padding-top: 25px">
@@ -87,13 +97,14 @@
                 </div>
                 <div class="col-lg-6 text-right">
                     <div class="dropdown">
-                        <a href="/sis/noticias/new" class="btn btn-outline-dark btn-sm" style="border-radius: 30px;"><i class="fa fa-plus"></i> Cadastrar Livros</a>
+                        <a href="#modal" data-toggle="modal" class="btn btn-outline-dark btn-sm" style="border-radius: 30px;"><i class="fa fa-plus"></i> Cadastrar Livros</a>
+
                         <button class="btn btn-outline-dark dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="border-radius: 30px;">
-                        <i class="fa fa-bookmark"></i> Categorias de Livros
+                        <i class="fa fa-bookmark"></i> Editoras dos Livros
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Nova Categoria de Livros</a>
-                            <a class="dropdown-item" href="#">Ver Categorias de Livros</a>
+                            <a class="dropdown-item" href="#modal2" data-toggle="modal">Cadastrar Editora</a>
+                            <!--<a class="dropdown-item" href="#modal2" data-toggle="modal">Ver Editoras</a>-->
                         </div>
                     </div>
                 </div>
@@ -120,9 +131,119 @@
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-success" data-dismiss="modal">Cadastrar Livro</button>
-        </div>
+        <hr>
     </div>
+</div>
+
+<!-- Modal Cadastrar Livro-->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Livro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="cadastrarLivro.php" id="formCadastroLivro" >
+        <div class="modal-body">
+            <label class="label-input" for="">
+                <br>Código:
+                <input id="campo_codigoEditora"  class="form-control" name="campo_codigoEditora" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código da Editora"  onkeypress='return SomenteNumero(event)'>
+            </label>
+            <span>
+                <?php
+                    $verificarURL = $_SERVER['REQUEST_URI'];
+                    if(strstr($verificarURL, 'erro_codigoEditora=1&')){
+                        echo "<h6 style='padding-left:35px; color:red'>Editora já cadastrada</h6>";
+                    }
+                ?>
+            </span>
+                                
+            <label class="label-input" for="">
+                <br>Título:
+                <input id="campo_titulo" class="form-control" name="campo_titulo" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" placeholder="Título">
+            </label>
+            <span>
+                <?php
+                    $verificarURL = $_SERVER['REQUEST_URI'];
+                    if(strstr($verificarURL, 'erro_titulo=1&')){
+                        echo "<h6 style='padding-left:35px; color:red'>Este livro já está cadastrado</h6>";
+                    }
+                ?>
+            </span>
+            <label class="label-input" for="">
+                <br>Edição:
+                <input id="campo_edicaoLivro"  class="form-control" name="campo_edicaoLivro" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Edição do Livro"  onkeypress='return SomenteNumero(event)'>
+            </label>
+
+            <label class="label-input" for="">
+                <br>Sinopse:
+                <textarea cols="30" rows="5" id="campo_sinopse" style="width: 465px;height: 340px;resize: none;" class="form-control" name="campo_sinopse" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text"></textarea>
+            </label>
+
+            <label class="label-input" for="">
+                <br>Genero:
+                <input id="campo_genero"  class="form-control" name="campo_genero" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Gênero do Livro">
+            </label>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button type="button" type="submit" value="cadastro" class="btn btn-success">Salvar mudanças</button>
+            </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Cadastrar Editora-->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cadastrar Editora</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form method="post" action="cadastrarEditora.php" id="formCadastroEditora" >
+            <div class="modal-body">
+                <label class="label-input" for="">
+                    <br>Código:
+                    <input id="campo_codigo"  class="form-control" name="campo_codigo" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código Editora"  onkeypress='return SomenteNumero(event)'>
+                </label>
+                <span>
+                    <?php
+                        $verificarURL = $_SERVER['REQUEST_URI'];
+                        if(strstr($verificarURL, 'erro_codigoEditora=1&')){
+                            echo "<h6 style='padding-left:35px; color:red'>Editora já cadastrada</h6>";
+                        }
+                    ?>
+                    
+                </span>
+                                
+                <label class="label-input" for="">
+                    <br>Nome:
+                    <input id="campo_nome" class="form-control" name="campo_nome" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" placeholder="Nome">
+                </label>
+                <span>
+                    <?php
+                        $verificarURL = $_SERVER['REQUEST_URI'];
+                        if(strstr($verificarURL, 'erro_nomeEditora=1&')){
+                            echo "<h6 style='padding-left:35px; color:red'>Esta editora já está cadastrada</h6>";
+                        }
+                    ?>
+                </span>
+                <label class="label-input"  for="">
+                    Contato:
+                    <input id="campo_contato" class="form-control" name="campo_contato" oninvalid="InvalidMsg3(this);" oninput="InvalidMsg3(this);" required="required" type="text" placeholder="Telefone"  onkeypress='return SomenteNumero(event)'>
+                </label>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" type="submit" value="cadastro" class="btn btn-success">Salvar mudanças</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
 </div>

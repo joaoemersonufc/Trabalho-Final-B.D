@@ -41,7 +41,7 @@ function redirect()
 {
     header("refresh: 3;home.php");
         
-    echo "<title>Redirecionando...</title> <body style='padding-top:30px' bgcolor='#eeeeee'><font color='#9457A1' style='border:bold; text-transform:uppercase;'><center>Login realizado com sucesso!<br><hr>Aguarde, redirecionando em 3 segundos...<br><img src='https://' width='284' heigth='284' style='opacity:0.7;filter:alpha(opacity=70);border:bold;'><br><hr>Se o redirecionamento não funcionar automaticamente, retorne a página inicial e tente novamente...";
+    echo "<title>Redirecionando...</title> <body style='padding-top:30px;' bgcolor='#eeeeee'><font color='#9457A1' style='border:bold; text-transform:uppercase;font-family: 'Open Sans', sans-serif;'><center>Login realizado com sucesso!<br><hr>Aguarde, redirecionando em 3 segundos...<br><img src='https://' width='284' heigth='284' style='opacity:0.7;filter:alpha(opacity=70);border:bold;'><br><hr>Se o redirecionamento não funcionar automaticamente, retorne a página inicial e tente novamente...";
 
     exit;
 }
