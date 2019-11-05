@@ -8,7 +8,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="img/logoico.png">
+    <link rel="shortcut icon" href="../img/logoico.png">
 
     <!-- Compatibilidade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
     <title>Biblioteca</title>
 
     <!-- Adicionando CSS e ícones -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3822b36004.js" crossorigin="anonymous"></script>

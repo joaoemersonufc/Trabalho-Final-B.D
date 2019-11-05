@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Painel Login</title>
-    <link rel="shortcut icon" href="img/logoico.png">
+    <link rel="shortcut icon" href="../img/logoico.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- js -->
@@ -41,7 +41,7 @@
             return true;
         }</script>
 
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 <!-- font-awesome-ícones -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"

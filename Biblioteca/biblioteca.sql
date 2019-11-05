@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Nov-2019 às 00:42
+-- Generation Time: 05-Nov-2019 às 14:19
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -31,7 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `editora` (
   `cod` int(10) NOT NULL,
   `nome` varchar(35) NOT NULL,
-  `contato` varchar(244) NOT NULL
+  `telefone` int(10) NOT NULL,
+  `email` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -68,7 +69,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `nome`, `matricula`, `senha`) VALUES
 (1, 'João', 412966, '123'),
-(23, 'Davi', 412725, '123');
+(23, 'Davi', 412725, '123'),
+(25, 'Lucas', 2147483647, '123');
 
 --
 -- Indexes for dumped tables
@@ -107,7 +109,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables

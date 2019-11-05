@@ -46,8 +46,8 @@
 </style>
 
 <title>Ajuda</title>
-<link rel="shortcut icon" href="img/logoico.png">
-<link rel="stylesheet" href="css/livros.css">
+<link rel="shortcut icon" href="../img/logoico.png">
+<link rel="stylesheet" href="../css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/3822b36004.js" crossorigin="anonymous"></script>
@@ -66,7 +66,8 @@
             <div class="row">
                 <div align="center">
                 <h1 style="padding-left: 20px;padding-top: 50px">O que sou?</h1>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+                <h4>Olá! Me chamo Bibliotech e basicamente sou um sistema desenvolvido por dois alunos do curso de Engenharia de Software da UFC campus
+                de Russas. Meu intuito é facilitar o cadastro, empréstimo e devolução dos mais variados tipos de livros (Biblioteca Virtual), sou um sistema em fase Alfa então demais melhorias ocorrerão com o tempo e com as requisições dos meus usuários :D. Espero que eu possa ser bastante útil durante o uso e caso tenha sugestões ou não estou funcionando corretamente contate os desenvolvedores.</h4>
                 </div>
             </div>
             <div class="row">

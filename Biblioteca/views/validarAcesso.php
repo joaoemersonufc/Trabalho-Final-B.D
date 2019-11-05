@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once('database/banco.php');
+require_once('../database/banco.php');
 
 $matricula = $_POST['campo_matricula'];
 $senha = $_POST['campo_senha'];
@@ -41,7 +41,7 @@ function redirect()
 {
     header("refresh: 3;home.php");
         
-    echo "<head><title>Redirecionando...</title><link rel='shortcut icon' href='img/logoico.png'></head><body style='padding-top:30px;' bgcolor='#eeeeee'><font color='#9457A1' style='border:bold; text-transform:uppercase;font-family: 'Open Sans', sans-serif;padding-top:30px;'><center>Login realizado com sucesso!<br><hr>Aguarde, redirecionando em 3 segundos...<br><img src='img/logo.png' width='284' heigth='284' style='opacity:0.7;filter:alpha(opacity=70);border:bold;padding-top:30px;'><br><hr>Se o redirecionamento não funcionar automaticamente, retorne a página inicial e tente novamente...";
+    echo "<head><title>Redirecionando...</title><link rel='shortcut icon' href='../img/logoico.png'></head><body style='padding-top:30px;' bgcolor='#eeeeee'><font color='#9457A1' style='border:bold; text-transform:uppercase;font-family: 'Open Sans', sans-serif;padding-top:30px;'><center>Login realizado com sucesso!<br><hr>Aguarde, redirecionando em 3 segundos...<br><img src='../img/logo.png' width='284' heigth='284' style='opacity:0.7;filter:alpha(opacity=70);border:bold;padding-top:30px;'><br><hr>Se o redirecionamento não funcionar automaticamente, retorne a página inicial e tente novamente...";
 
     exit;
 }

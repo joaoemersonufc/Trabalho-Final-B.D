@@ -6,10 +6,9 @@
         header('Location: logar.php?erro=1');
     }
 ?>
-
-<title>Reservas</title>
+<title>Empréstimos</title>
 <link rel="shortcut icon" href="img/logoico.png">
-<link rel="stylesheet" href="css/livros.css">
+<link rel="stylesheet" href="../css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/3822b36004.js" crossorigin="anonymous"></script>
@@ -75,31 +74,30 @@
                 </i> Voltar</a>
         </div>
         <div class="col-xl-12 mt-3 mx-auto actions" style="padding-top: 20px">
-            <h1 class="font-weight-lighter title-second" style="border:bold;color: #9457A1;">Reservas</h1>
+            <h1 class="font-weight-lighter title-second" style="border:bold;color: #9457A1;">Empréstimos</h1>
             <hr>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="dropdown">
-                        <button class="btn btn-outline-dark dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius: 30px">
+                        <button class="btn btn-outline-dark dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="border-radius: 30px;">
                             Ordenar Por <i class="fa fa-filter"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Ordem Crescente</a>
-                            <a class="dropdown-item" href="#">Ordem Decrescente</a>
-                            
+                            <a class="dropdown-item" href="">Ordem Crescente</a>
+                            <a class="dropdown-item" href="">Ordem Decrescente</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="input-search" placeholder="Pesquisar Reserva.." style="border-top-left-radius: 20px; border-bottom-left-radius: 20px"/>
+                        <input type="text" class="form-control" name="input-search" placeholder="Pesquisar Empréstimo.." style="border-top-left-radius: 20px; border-bottom-left-radius: 20px"/>
                         <div class="input-group-append">
                             <button class="btn btn-dark-purple" type="button" id="show-form"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </div>
                 <div class="col-2 mx-auto text-center" style="padding-top: 40px; margin-top: 30px">
-                    <h1><i class="fas fa-calendar-alt" style="color: #9457A1"></i></h1>
+                    <h1><i class="fas fa-hand-holding-heart" style="color: #9457A1"></i></h1>
                     <hr class="my-1">
                 </div>
             </div>
@@ -107,7 +105,7 @@
             </div>
                 <div class="row mt-4">
                     <div class="col-12 text-center">
-                        <h2 class="font-weight-lighter">Sem reservas até o momento...</h2>
+                        <h2 class="font-weight-lighter">Sem empréstimos até o momento...</h2>
                         <br>
                     </div>
                 </div>

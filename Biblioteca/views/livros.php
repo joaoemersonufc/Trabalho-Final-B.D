@@ -8,7 +8,7 @@
 ?>
 <title>Livros</title>
 <link rel="shortcut icon" href="img/logoico.png">
-<link rel="stylesheet" href="css/livros.css">
+<link rel="stylesheet" href="../css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/3822b36004.js" crossorigin="anonymous"></script>
@@ -16,6 +16,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript" src='js/bootstrap.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
 <style>
     .title-second {
        color: #9457A1;
@@ -72,6 +74,81 @@
                 if (tecla==8 || tecla==0) return true;
             else  return false;
         }
+    }
+    $(document).ready(function(){
+      $('#campo_contatoTelefone').mask('(00) 0000-0000');
+      });
+</script>
+<script>
+    function InvalidMsg(textbox) {
+        
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Preencha com o Código');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+    function InvalidMsg2(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Preencha com o Título');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+    function InvalidMsg3(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Informe a Edição');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+    function InvalidMsg4(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Preencha com a Sinopse');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+    function InvalidMsg5(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Informe o gênero do Livro');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+    function InvalidMsg6(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Informe o Nome da Editora');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
+    function InvalidMsg7(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Informe o Email');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
     }
 </script>
 <div class="container-fluid">
@@ -150,20 +227,20 @@
         <div class="modal-body">
             <label class="label-input" for="">
                 <br>Código:
-                <input id="campo_codigoEditora"  class="form-control" name="campo_codigoEditora" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código da Editora"  onkeypress='return SomenteNumero(event)'>
+                <input id="campo_codigoEditora" class="form-control" name="campo_codigoEditora" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código da Editora" style="color:black" onkeypress='return SomenteNumero(event)'>
             </label>
             <span>
                 <?php
                     $verificarURL = $_SERVER['REQUEST_URI'];
                     if(strstr($verificarURL, 'erro_codigoEditora=1&')){
-                        echo "<h6 style='padding-left:35px; color:red'>Editora já cadastrada</h6>";
+                        echo "<h6 style='padding-left:35px; color:red'>Editora não está cadastrada</h6>";
                     }
                 ?>
             </span>
                                 
             <label class="label-input" for="">
                 <br>Título:
-                <input id="campo_titulo" class="form-control" name="campo_titulo" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" placeholder="Título">
+                <input id="campo_titulo" class="form-control" name="campo_titulo" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" style="color:black" placeholder="Título">
             </label>
             <span>
                 <?php
@@ -175,24 +252,25 @@
             </span>
             <label class="label-input" for="">
                 <br>Edição:
-                <input id="campo_edicaoLivro"  class="form-control" name="campo_edicaoLivro" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Edição do Livro"  onkeypress='return SomenteNumero(event)'>
+                <input id="campo_edicaoLivro"  class="form-control" name="campo_edicaoLivro" oninvalid="InvalidMsg3(this);" oninput="InvalidMsg3(this);" required="required" type="text" placeholder="Edição do Livro"  style="color:black" onkeypress='return SomenteNumero(event)'>
             </label>
 
             <label class="label-input" for="">
                 <br>Sinopse:
-                <textarea cols="30" rows="5" id="campo_sinopse" style="width: 465px;height: 340px;resize: none;" class="form-control" name="campo_sinopse" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text"></textarea>
+                <textarea cols="30" rows="5" id="campo_sinopse" style="width: 465px;height: 340px;resize: none;color:black" class="form-control" name="campo_sinopse" oninvalid="InvalidMsg4(this);" oninput="InvalidMsg4(this);" required="required" type="text"></textarea>
             </label>
 
             <label class="label-input" for="">
-                <br>Genero:
-                <input id="campo_genero"  class="form-control" name="campo_genero" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Gênero do Livro">
+                <br>Gênero:
+                <input id="campo_genero"  class="form-control" name="campo_genero" oninvalid="InvalidMsg5(this);" oninput="InvalidMsg5(this);" required="required" type="text" style="color:black" placeholder="Gênero do Livro">
             </label>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                <button type="button" type="submit" value="cadastro" class="btn btn-success">Salvar mudanças</button>
-            </div>
+            <br><hr>
+            <span style="padding-left:210px">
+                <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button type="submit" id="salvar" value="cadastro" class="btn btn-success">Salvar mudanças</button>
+            </span>
         </div>
-    </form>
+      </form>
     </div>
   </div>
 </div>
@@ -211,7 +289,7 @@
             <div class="modal-body">
                 <label class="label-input" for="">
                     <br>Código:
-                    <input id="campo_codigo"  class="form-control" name="campo_codigo" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código Editora"  onkeypress='return SomenteNumero(event)'>
+                    <input id="campo_codigo"  class="form-control" name="campo_codigo" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código Editora" style="color:black" onkeypress='return SomenteNumero(event)'>
                 </label>
                 <span>
                     <?php
@@ -225,7 +303,7 @@
                                 
                 <label class="label-input" for="">
                     <br>Nome:
-                    <input id="campo_nome" class="form-control" name="campo_nome" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" placeholder="Nome">
+                    <input id="campo_nome" class="form-control" name="campo_nome" oninvalid="InvalidMsg5(this);" oninput="InvalidMsg5(this);" required="required" type="text" style="color:black" placeholder="Nome">
                 </label>
                 <span>
                     <?php
@@ -235,16 +313,27 @@
                         }
                     ?>
                 </span>
-                <label class="label-input"  for="">
+                <div>
                     Contato:
-                    <input id="campo_contato" class="form-control" name="campo_contato" oninvalid="InvalidMsg3(this);" oninput="InvalidMsg3(this);" required="required" type="text" placeholder="Telefone"  onkeypress='return SomenteNumero(event)'>
-                </label>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    <button type="button" type="submit" value="cadastro" class="btn btn-success">Salvar mudanças</button>
+                    <input id="campo_contatoTelefone" class="form-control" name="campo_contatoTelefone" oninvalid="InvalidMsg6(this);" oninput="InvalidMsg6(this);" required="required" type="text" placeholder="Telefone" style="width: 230px;color:black" onkeypress='return SomenteNumero(event)'><br>
+                    <input id="campo_contatoEmail" class="form-control" name="campo_contatoEmail" oninvalid="InvalidMsg7(this);" oninput="InvalidMsg7(this);" required="required" type="email" style="color:black" placeholder="Email"><br>
+
                 </div>
+                <br><hr>
+                <span style="padding-left:210px">
+                    <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="submit" value="cadastro" class="btn btn-success">Salvar mudanças</button>
+                </span>
             </div>
         </form>
     </div>
   </div>
 </div>
+<script>
+    $('#formCadastroLivro').submit(function(){
+        $(this)[0].reset();
+    });
+    $('#formCadastroEditora').submit(function(){
+        $(this)[0].reset();
+    });
+</script>

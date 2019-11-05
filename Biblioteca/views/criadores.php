@@ -46,8 +46,8 @@
 </style>
 
 <title>Criadores</title>
-<link rel="shortcut icon" href="img/logoico.png">
-<link rel="stylesheet" href="css/livros.css">
+<link rel="shortcut icon" href="../img/logoico.png">
+<link rel="stylesheet" href="../css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/3822b36004.js" crossorigin="anonymous"></script>
@@ -58,14 +58,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-12 mx-auto actions" style="padding-top: 25px">
-            <a href="./home.php" class="btn btn-outline-dark" style="border-radius: 30px"><i class="fa fa-arrow-circle-left"></i> Voltar</a>
+            <a href="home.php" class="btn btn-outline-dark" style="border-radius: 30px"><i class="fa fa-arrow-circle-left"></i> Voltar</a>
         </div>
         <div class="col-xl-12 mt-3 mx-auto" style="padding-top: 20px">
             <h1 class="font-weight-lighter" style="border:bold;color: #9457A1;">Criadores</h1>
             <hr>
             <div class="row align-items-center" align="center">
                 <div class="col-lg-3 py-5 card-news">
-                    <img src='img/joao.jpg' class="img-assoc image" style="border-radius:30px" alt="">
+                    <img src='../img/joao.jpg' class="img-assoc image" style="border-radius:30px" alt="">
                     <div class="middle">
                         <div class="text">
                             <h5 class="text-dark"></h5>
@@ -81,7 +81,7 @@
             <hr>
             <div class="row align-items-center">
                 <div class="col-lg-3 py-5 card-news">
-                    <img src='img/davi.jpeg' class="img-assoc image" style="border-radius:30px" alt="">
+                    <img src='../img/davi.jpeg' class="img-assoc image" style="border-radius:30px" alt="">
                     <div class="middle">
                         <div class="text">
                             <h5 class="text-dark"></h5>
