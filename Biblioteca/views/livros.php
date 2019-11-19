@@ -7,7 +7,7 @@
     }
 ?>
 <title>Livros</title>
-<link rel="shortcut icon" href="img/logoico.png">
+<link rel="shortcut icon" href="../img/logoico.png">
 <link rel="stylesheet" href="../css/livros.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -150,6 +150,16 @@
         }
         return true;
     }
+    function InvalidMsg9(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Informe o Autor');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
 </script>
 <div class="container-fluid">
 
@@ -232,8 +242,12 @@
             <span>
                 <?php
                     $verificarURL = $_SERVER['REQUEST_URI'];
-                    if(strstr($verificarURL, 'erro_codigoEditora=1&')){
-                        echo "<h6 style='padding-left:35px; color:red'>Editora não está cadastrada</h6>";
+                    if(strstr($verificarURL, 'erro_editora2=1&')){
+                        echo "<script>
+                                $(document).ready(function() {
+                                    $('#modal').modal('show');
+                                })
+                            </script><h8 style='font-size:10px;color:red'>Editora não está cadastrada</h8>";
                     }
                 ?>
             </span>
@@ -242,14 +256,24 @@
                 <br>Título:
                 <input id="campo_titulo" class="form-control" name="campo_titulo" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" style="color:black" placeholder="Título">
             </label>
-            <span>
+                <span>
                 <?php
                     $verificarURL = $_SERVER['REQUEST_URI'];
                     if(strstr($verificarURL, 'erro_titulo=1&')){
-                        echo "<h6 style='padding-left:35px; color:red'>Este livro já está cadastrado</h6>";
+                        echo "<script>
+                                $(document).ready(function() {
+                                    $('#modal').modal('show');
+                                })
+                            </script><h8 style='font-size:10px;color:red'>Este livro já está cadastrado</h8>";
                     }
                 ?>
-            </span>
+                </span>
+
+            <label class="label-input" for="">
+                <br>Autor:
+                <input id="campo_autor" class="form-control" name="campo_autor" oninvalid="InvalidMsg9(this);" oninput="InvalidMsg9(this);" required="required" type="text" style="color:black" placeholder="Autor">
+            </label>
+            
             <label class="label-input" for="">
                 <br>Edição:
                 <input id="campo_edicaoLivro"  class="form-control" name="campo_edicaoLivro" oninvalid="InvalidMsg3(this);" oninput="InvalidMsg3(this);" required="required" type="text" placeholder="Edição do Livro"  style="color:black" onkeypress='return SomenteNumero(event)'>
@@ -265,11 +289,11 @@
                 <input id="campo_genero"  class="form-control" name="campo_genero" oninvalid="InvalidMsg5(this);" oninput="InvalidMsg5(this);" required="required" type="text" style="color:black" placeholder="Gênero do Livro">
             </label>
             <br><hr>
-            <span style="padding-left:210px">
-                <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                <button type="submit" id="salvar" value="cadastro" class="btn btn-success">Salvar mudanças</button>
-            </span>
         </div>
+        <span style="padding-left:210px">
+            <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+            <button type="submit" id="salvar" value="cadastro" class="btn btn-success">Salvar mudanças</button>
+        </span>
       </form>
     </div>
   </div>
@@ -280,8 +304,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Cadastrar Editora</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <h5 class="modal-title" id="exampleModalLabel2">Cadastrar Editora</h5>
+            <button type="button" class="close" data-dismiss="modal2" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -289,13 +313,18 @@
             <div class="modal-body">
                 <label class="label-input" for="">
                     <br>Código:
-                    <input id="campo_codigo"  class="form-control" name="campo_codigo" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="Código Editora" style="color:black" onkeypress='return SomenteNumero(event)'>
+                    <input id="campo_codigo"  class="form-control" name="campo_codigo" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="number" placeholder="Código Editora" style="color:black" onkeypress='return SomenteNumero(event)'>
                 </label>
                 <span>
                     <?php
                         $verificarURL = $_SERVER['REQUEST_URI'];
-                        if(strstr($verificarURL, 'erro_codigoEditora=1&')){
-                            echo "<h6 style='padding-left:35px; color:red'>Editora já cadastrada</h6>";
+                        if(strstr($verificarURL, 'erro_editora=1&')){
+
+                            echo "<script>
+                                $(document).ready(function() {
+                                    $('#modal2').modal('show');
+                                })
+                            </script><h8 style='font-size:10px;color:red'>Editora já cadastrada!</h8>";
                         }
                     ?>
                     
@@ -308,8 +337,12 @@
                 <span>
                     <?php
                         $verificarURL = $_SERVER['REQUEST_URI'];
-                        if(strstr($verificarURL, 'erro_nomeEditora=1&')){
-                            echo "<h6 style='padding-left:35px; color:red'>Esta editora já está cadastrada</h6>";
+                        if(strstr($verificarURL, 'erro_codigo=1&')){
+                            echo "<script>
+                                $(document).ready(function() {
+                                    $('#modal2').modal('show');
+                                })
+                            </script><h8 style='font-size:10px;color:red'>Esta editora já está cadastrada!</h8>";
                         }
                     ?>
                 </span>
@@ -320,20 +353,12 @@
 
                 </div>
                 <br><hr>
-                <span style="padding-left:210px">
-                    <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    <button type="submit" value="cadastro" class="btn btn-success">Salvar mudanças</button>
-                </span>
             </div>
+            <span style="padding-left:210px">
+                <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button type="submit" id="save" class="btn btn-success">Salvar mudanças</button>
+            </span>
         </form>
     </div>
   </div>
 </div>
-<script>
-    $('#formCadastroLivro').submit(function(){
-        $(this)[0].reset();
-    });
-    $('#formCadastroEditora').submit(function(){
-        $(this)[0].reset();
-    });
-</script>

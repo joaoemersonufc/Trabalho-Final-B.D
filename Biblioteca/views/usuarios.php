@@ -158,7 +158,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="POST">
+            <form action="excluir_Usuario.php" method="POST">
                 <input type="hidden" name="id" value="">
                 <div class="modal-body">
                     <h2 class="text-center">Deseja realmente excluir este Usuário ?</h2>
@@ -172,28 +172,6 @@
         </div>
     </div>
 </div>
-<script>
-    $("#modal_excluir").on("show.bs.modal", function(e) {
-        var link = $(e.relatedTarget);
-        var id = link.attr('id');
-
-        // alert(JSON.stringify(data[id].data))
-        if(link.attr("modal-size")!= undefined){
-            $(this).find(".modal-dialog").attr('class', 'modal-dialog '+link.attr("modal-size"))
-        } else{
-            $(this).find(".modal-dialog").attr('class', 'modal-dialog')
-        }
-
-        $(this).find('[name=id]').val(id)
-
-    });
-
-    $("#modal_excluir").on("hidden.bs.modal", function(e) {
-
-        $(this).find('[name=id]').val('')
-
-    });
-</script>
 
 <div class="modal" id="modal_criar" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
