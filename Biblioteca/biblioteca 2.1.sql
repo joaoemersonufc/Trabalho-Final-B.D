@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Nov-2019 às 00:21
+-- Generation Time: 22-Nov-2019 às 03:23
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -134,9 +134,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nome`, `matricula`, `senha`) VALUES
-(1, 'João', 412966, '123'),
-(23, 'Davi', 412725, '123'),
-(29, '', 0, '');
+(1, 'Joao', 412966, '123'),
+(2, 'Davi', 412900, '123'),
+(33, 'cansas', 324324, '123'),
+(34, 'Gabriel', 213123, '123');
 
 --
 -- Indexes for dumped tables
@@ -200,13 +201,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables

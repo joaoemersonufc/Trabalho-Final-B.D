@@ -76,7 +76,7 @@
                 </div>
             </div>
                 <span>
-                    <h1 style="font-size: 25px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+                    <h1 style="font-size: 25px">Atualmente é Diretor Comercial e Diretor de Projetos na Empresa Júnior Include Júnior associada a Universidade Federal do Ceará. Cursando Engenharia de Software (2018), com ênfase na documentação e elicitação de requisitos comerciais, uso de ferramentas administrativas como Pipefy, Slack, Monday e Trello e conhecimentos relativos ao empreendedorismo e prospecção de clientes. Entusiasta do desenvolvimento web e desktop com habilidades em .NET C#. Empreender é viver!</h1>
                 </span>
             <hr>
             <div class="row align-items-center">
@@ -91,7 +91,7 @@
                 </div>
             </div>
                 <span>
-                    <h1 style="font-size: 25px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+                    <h1 style="font-size: 25px">Graduando em Engenharia de Software pela UFC Campus Russas.</h1>
                 </span>
             <hr>
         </div>

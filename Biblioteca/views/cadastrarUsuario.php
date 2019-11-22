@@ -6,7 +6,7 @@ require_once('../database/banco.php');
 
 $usuario = $_POST['campo_nome'];
 $matricula = $_POST['campo_matricula'];
-$senha = ($_POST['campo_senha']);
+$senha = $_POST['campo_senha'];
 
 
 $objDb = new db();
@@ -56,7 +56,6 @@ if ($usuario_existe || $matricula_existe) {
     header('Location: usuarios.php?' . $retorno_get);
     die();
 }
-
 $sql = " insert into usuario(nome, matricula, senha) values ('$usuario', '$matricula', '$senha') ";
 
 //executar a query

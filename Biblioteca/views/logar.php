@@ -59,7 +59,7 @@
 	           	<form class="form" method="post" action="validarAcesso.php" id="formCadastro" >
 	                <label class="label-input" for="">
 	                    <i style="font-size: 23.5px ;" class="fa fa-address-card-o icon-modify" ></i>
-	                    <input  id="campo_matricula" name="campo_matricula" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" placeholder="  Matrícula" onkeypress='return SomenteNumero(event)'>
+	                    <input  id="campo_matricula" name="campo_matricula" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" type="text" maxlength="6" placeholder="  Matrícula" onkeypress='return SomenteNumero(event)'>
 	                </label>
 
 	                <label class="label-input" for="">

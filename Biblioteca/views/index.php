@@ -96,7 +96,7 @@
                             
                             <label class="label-input" for="">
                                 <i style="font-size: 13.5px ; padding-left:4px;" class="fa fa-address-card-o icon-modify" ></i>
-                                <input id="campo_matricula" name="campo_matricula" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" placeholder="  Matrícula" onkeypress='return SomenteNumero(event)'>
+                                <input id="campo_matricula" name="campo_matricula" oninvalid="InvalidMsg2(this);" oninput="InvalidMsg2(this);" required="required" type="text" maxlength="6" placeholder="  Matrícula" onkeypress='return SomenteNumero(event)'>
                             </label>
                             <span>
                                 <?php
