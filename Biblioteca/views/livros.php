@@ -5,6 +5,15 @@
     if(!isset($_SESSION['matricula'])){
         header('Location: logar.php?erro=1');
     }
+    
+    require_once("../database/banco.php"); // caminho do seu arquivo de conexão ao banco de dados
+    $consulta = "SELECT * FROM livro";
+    $objDb = new db();
+    $link = $objDb->conecta_mysql();
+    $con      = mysqli_query($link,$consulta) or die();
+
+    $VERIFICADOR = false;
+
 ?>
 <title>Livros</title>
 <link rel="shortcut icon" href="../img/logoico.png">
@@ -160,6 +169,16 @@
         }
         return true;
     }
+    function InvalidMsg11(textbox) {
+            
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Escolha uma Imagem');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
 </script>
 <div class="container-fluid">
 
@@ -204,28 +223,86 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2 mx-auto text-center" style="padding-top: 40px">
-                    <h1><i class="fas fa-book" style="color: #9457A1"></i></h1>
-                    <hr class="my-1">
-                </div>
-            </div>
-            <div class="row align-items-center">
-            </div>
-                <div class="row mt-4">
-                    <div class="col-12 text-center">
-                        <h2 class="font-weight-lighter">Sem livros para visualizar. Que tal cadastrar alguns?</h2>
-                        <br>
+                <?php while($dado = $con->fetch_array()) {  if($dado['reservado'] == 0) { ?>
+                    <style type="text/css">
+                        div{
+                            display: inline-block;
+                        }
+                    </style>
+                        <div style="width:auto; padding-left:60px" class="col-lg-3 py-5 card-news">
+                            <img src="../img/livroroxo.png" style="width:250px;height:250px" class="img-assoc image" alt="">
+                            <div style="padding-left:50px" class="middle">
+                                <div class="text">
+                                    <h5 class="text-dark" align="center"></h5>
+                                    <tr>
+                                      <td><?php echo "<b><font color=\"#9457A1\">" . $dado['titulo'] . "</font></b>"?></td>
+                                      <td><?php echo "<b><font color=\"#000000\">" . $dado['autor'] . "</font></b>"?></td>
+                                    </tr>
+                                    <br>
+                                    <a class="btn btn-outline-primary my-1"  href="#modal3-<?php echo $dado['cod']; ?>" value="echo $dado['cod'];" data-toggle="modal">Ver informações
+                                    <i class="fa fa-info-circle"></i>
+                                    </a>
+                                    <a href="excluir_Livro.php?codigo=<?php echo $dado['cod']; ?>" align="center" class="btn btn-outline-danger my-1">
+                                            Excluir Livro
+                                    <i class="fa fa-trash"></i>
+                                    </a>
+                                    <a href="cadastrar_Reserva.php?codigo=<?php echo $dado['cod']; ?>" align="center" class="btn btn-outline-warning my-1">
+                                            Reservar Livro
+                                    <i class="fa fa-archive"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal" id="modal3-<?php echo $dado['cod']; ?>" tabindex="-1" role="dialog">
+                          <div class="modal-dialog" role="document" style="display: flex">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title">Autor:</h5>
+                               
+                                <?php echo " <b><font color=\"#0000\"> " . $dado['autor'] . " </font></b>"?>
+                                
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>Sinopse:</p>
+                                <?php echo " <b><font color=\"#0000\"> " . $dado['sinopse'] . " </font></b>"?>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                <?php $VERIFICADOR = true; } }?>
+                <?php if(!($VERIFICADOR)) { ?>   
+                    <div class="col-xl-12 mt-3 mx-auto actions" style="padding-top: 20px">
+                        <div class="row">   
+                            <div class='col-2 mx-auto text-center' style='padding-top: 40px'>
+                                <h1><i class='fas fa-book' style='color: #9457A1'></i></h1>
+                                <hr class='my-1'>
+                            </div>
+                        </div>
+                        <div class='row align-items-center'>
+                        </div>
+
+                        <div class='row mt-4'>
+                            <div class='col-12 text-center'>
+                                <h2 class='font-weight-lighter'>Sem livros para visualizar. Que tal cadastrar alguns?</h2>
+                                <br>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <?php  } ?>       
             </div>
-        </div>
         <hr>
     </div>
 </div>
 
 <!-- Modal Cadastrar Livro-->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div style="display: flex" class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Cadastrar Livro</h5>
@@ -301,7 +378,7 @@
 
 <!-- Modal Cadastrar Editora-->
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div style="display: flex" class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel2">Cadastrar Editora</h5>

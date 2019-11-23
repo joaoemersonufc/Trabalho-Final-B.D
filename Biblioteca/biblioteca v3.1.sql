@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Nov-2019 às 03:23
+-- Generation Time: 23-Nov-2019 às 20:43
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -98,9 +98,19 @@ CREATE TABLE `livro` (
   `titulo` varchar(35) NOT NULL,
   `autor` varchar(55) NOT NULL,
   `edicao` varchar(35) NOT NULL,
-  `sinopse` varchar(244) NOT NULL,
-  `genero` varchar(25) NOT NULL
+  `sinopse` varchar(1024) NOT NULL,
+  `genero` varchar(25) NOT NULL,
+  `alugado` tinyint(1) NOT NULL,
+  `reservado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `livro`
+--
+
+INSERT INTO `livro` (`cod`, `cod_editora`, `titulo`, `autor`, `edicao`, `sinopse`, `genero`, `alugado`, `reservado`) VALUES
+(42, 2, 'saldksald', 'William Shakespeare', '213', 'fdsfdgfdgf', 'masculino', 0, 0),
+(43, 2, '456546', '45435', '2', 'sdfdsfds', 'wqdsa', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -109,12 +119,18 @@ CREATE TABLE `livro` (
 --
 
 CREATE TABLE `reserva` (
-  `cod` varchar(35) NOT NULL,
-  `data` date NOT NULL,
-  `validade` int(11) NOT NULL,
+  `cod` int(11) NOT NULL,
+  `data` varchar(35) NOT NULL,
   `id_usuario` int(10) NOT NULL,
   `cod_livro` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `reserva`
+--
+
+INSERT INTO `reserva` (`cod`, `data`, `id_usuario`, `cod_livro`) VALUES
+(31, '23/11/19', 412966, 43);
 
 -- --------------------------------------------------------
 
@@ -134,10 +150,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nome`, `matricula`, `senha`) VALUES
-(1, 'Joao', 412966, '123'),
-(2, 'Davi', 412900, '123'),
+(34, 'Gabriel', 213123, '123'),
 (33, 'cansas', 324324, '123'),
-(34, 'Gabriel', 213123, '123');
+(2, 'Davi', 412900, '123'),
+(1, 'Joao', 412966, '123');
 
 --
 -- Indexes for dumped tables
@@ -191,7 +207,8 @@ ALTER TABLE `reserva`
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`matricula`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -201,7 +218,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `reserva`
+--
+ALTER TABLE `reserva`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -214,37 +237,10 @@ ALTER TABLE `usuario`
 --
 
 --
--- Limitadores para a tabela `devolucao`
---
-ALTER TABLE `devolucao`
-  ADD CONSTRAINT `devolucao_ibfk_1` FOREIGN KEY (`cod_emprestimo`) REFERENCES `emprestimo` (`cod`),
-  ADD CONSTRAINT `devolucao_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
-
---
--- Limitadores para a tabela `emprestimo`
---
-ALTER TABLE `emprestimo`
-  ADD CONSTRAINT `emprestimo_ibfk_1` FOREIGN KEY (`cod_exemplar`) REFERENCES `exemplar` (`cod`),
-  ADD CONSTRAINT `emprestimo_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
-
---
--- Limitadores para a tabela `exemplar`
---
-ALTER TABLE `exemplar`
-  ADD CONSTRAINT `exemplar_ibfk_1` FOREIGN KEY (`cod_livro`) REFERENCES `livro` (`cod`);
-
---
--- Limitadores para a tabela `livro`
---
-ALTER TABLE `livro`
-  ADD CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`cod_editora`) REFERENCES `editora` (`cod`);
-
---
 -- Limitadores para a tabela `reserva`
 --
 ALTER TABLE `reserva`
-  ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`cod_livro`) REFERENCES `livro` (`cod`),
-  ADD CONSTRAINT `reserva_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
+  ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`matricula`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
