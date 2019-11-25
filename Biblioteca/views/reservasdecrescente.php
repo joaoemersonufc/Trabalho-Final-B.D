@@ -7,7 +7,7 @@
     }
 
     require_once("../database/banco.php"); // caminho do seu arquivo de conexão ao banco de dados
-    $consulta = "SELECT * FROM reserva";
+    $consulta = "SELECT * FROM reserva ORDER BY cod DESC";
     $objDb = new db();
     $link = $objDb->conecta_mysql();
     $con      = mysqli_query($link,$consulta) or die();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Nov-2019 às 20:43
+-- Generation Time: 25-Nov-2019 às 01:56
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -30,11 +30,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `devolucao` (
   `cod` int(10) NOT NULL,
+  `data` varchar(35) NOT NULL,
+  `multa` float(4,2) NOT NULL,
   `cod_emprestimo` int(10) NOT NULL,
-  `id_usuario` int(10) NOT NULL,
-  `data` date NOT NULL,
-  `multa` float(4,2) NOT NULL
+  `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `devolucao`
+--
+
+INSERT INTO `devolucao` (`cod`, `data`, `multa`, `cod_emprestimo`, `id_usuario`) VALUES
+(13, '24/11/19', 0.00, 14, 412966),
+(15, '25/11/19', 0.00, 14, 412966),
+(16, '25/11/19', 0.00, 15, 412966);
 
 -- --------------------------------------------------------
 
@@ -66,25 +75,21 @@ INSERT INTO `editora` (`cod`, `nome`, `telefone`, `email`) VALUES
 
 CREATE TABLE `emprestimo` (
   `cod` int(10) NOT NULL,
-  `data` date NOT NULL,
-  `prazo` date NOT NULL,
-  `limit_renovacoes` int(10) NOT NULL,
+  `data` varchar(35) NOT NULL,
+  `prazo` varchar(35) NOT NULL,
   `cod_exemplar` int(10) NOT NULL,
-  `id_usuario` int(10) NOT NULL
+  `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `exemplar`
+-- Extraindo dados da tabela `emprestimo`
 --
 
-CREATE TABLE `exemplar` (
-  `cod` int(10) NOT NULL,
-  `cod_livro` int(10) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `ano` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `emprestimo` (`cod`, `data`, `prazo`, `cod_exemplar`, `id_usuario`) VALUES
+(12, '24/11/19', '24/12/19', 46, 412966),
+(14, '24/11/19', '24/12/19', 45, 412966),
+(15, '25/11/19', '24/12/19', 48, 412966),
+(16, '25/11/19', '24/12/19', 47, 412966);
 
 -- --------------------------------------------------------
 
@@ -109,8 +114,11 @@ CREATE TABLE `livro` (
 --
 
 INSERT INTO `livro` (`cod`, `cod_editora`, `titulo`, `autor`, `edicao`, `sinopse`, `genero`, `alugado`, `reservado`) VALUES
-(42, 2, 'saldksald', 'William Shakespeare', '213', 'fdsfdgfdgf', 'masculino', 0, 0),
-(43, 2, '456546', '45435', '2', 'sdfdsfds', 'wqdsa', 0, 1);
+(45, 2, 'sdkjasjd', 'sdfsdfdsfdsf', '2', 'rdgfggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'masculon', 0, 1),
+(47, 2, '456546', 'sdfsdfdsfdsf', '5465454', 'dsfdsfdsfd', 'fsdfdsf', 1, 0),
+(48, 2, 'sdfdsf', 'sdfsdfds', '234', 'dsfsdfsd', 'fsdfsd', 1, 0),
+(49, 2, 'aBRA', 'William Shakespeare', '2', 'sadsad', 'sadasd', 0, 0),
+(50, 2, 'ZICO', '345435', '324324', '324324324', '234234', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -130,7 +138,10 @@ CREATE TABLE `reserva` (
 --
 
 INSERT INTO `reserva` (`cod`, `data`, `id_usuario`, `cod_livro`) VALUES
-(31, '23/11/19', 412966, 43);
+(38, '24/11/19', 412966, 45),
+(39, '24/11/19', 412966, 46),
+(40, '25/11/19', 412966, 47),
+(41, '25/11/19', 412966, 48);
 
 -- --------------------------------------------------------
 
@@ -182,13 +193,6 @@ ALTER TABLE `emprestimo`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `exemplar`
---
-ALTER TABLE `exemplar`
-  ADD PRIMARY KEY (`cod`),
-  ADD KEY `cod_livro` (`cod_livro`);
-
---
 -- Indexes for table `livro`
 --
 ALTER TABLE `livro`
@@ -215,16 +219,28 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT for table `devolucao`
+--
+ALTER TABLE `devolucao`
+  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `emprestimo`
+--
+ALTER TABLE `emprestimo`
+  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `cod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -235,6 +251,18 @@ ALTER TABLE `usuario`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `devolucao`
+--
+ALTER TABLE `devolucao`
+  ADD CONSTRAINT `devolucao_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`matricula`);
+
+--
+-- Limitadores para a tabela `emprestimo`
+--
+ALTER TABLE `emprestimo`
+  ADD CONSTRAINT `emprestimo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`matricula`);
 
 --
 -- Limitadores para a tabela `reserva`

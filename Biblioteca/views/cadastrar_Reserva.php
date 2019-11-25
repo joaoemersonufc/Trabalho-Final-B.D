@@ -11,8 +11,28 @@ $cod_livro = $_GET['codigo'];
 $objDb = new db();
 $link = $objDb->conecta_mysql();
 
+$reserva_existe = false;
+
 $sql = " update livro SET reservado = '1' WHERE cod = $cod_livro";
 mysqli_query($link, $sql);
+
+
+$sql = " Select * from reserva where cod_livro = '$cod_livro' ";
+if ($resultado_id = mysqli_query($link, $sql)) {
+
+    $dados_livro = mysqli_fetch_array($resultado_id);
+
+    if ($dados_livro['cod_livro'] == $cod_livro) {
+        $reserva_existe = true;
+    }
+} else {
+    echo 'Erro ao tentar localizar o registro de reserva';
+}
+
+
+if($reserva_existe){
+	redirect();
+}
 
 $sql = " insert into reserva(data, id_usuario, cod_livro) values ('$data', '$id_usuario', '$cod_livro') ";
 
